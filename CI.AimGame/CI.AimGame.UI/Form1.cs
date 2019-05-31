@@ -14,7 +14,7 @@ namespace CI.AimGame.UI
         public Form1()
         {
             InitializeComponent();
-            _radius = Math.Sqrt((50 * 50) + (50 * 50));
+            _radius = 50;
         }
 
         Random rnd = new Random();
@@ -27,7 +27,9 @@ namespace CI.AimGame.UI
                 _graphics.Clear(Color.Aqua);
                 _x = rnd.Next(100);
                 _y = rnd.Next(100);
-                Rectangle rec = new Rectangle(_x,_y,50,50);
+                Rectangle rec = new Rectangle(_x,_y,100,100);
+                _x += 50;
+                _y += 50;
                 brush = new SolidBrush(Color.Black);
                 _graphics.FillEllipse(brush, rec);
             }
@@ -47,7 +49,10 @@ namespace CI.AimGame.UI
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            //double radius = Math.Sqrt((e.X * e.X) + (e.Y * e.Y));
+            int a = e.X - _x;
+            int b = e.Y - _y;
+
+            double radius = Math.Sqrt((a*a) + (b*b));
 
             if (radius <= _radius)
             {
