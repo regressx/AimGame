@@ -14,7 +14,7 @@ namespace CI.AimGame.UI
         public Form1()
         {
             InitializeComponent();
-            _radius = 50;
+            _radius = 15;
         }
 
         Random rnd = new Random();
@@ -25,11 +25,11 @@ namespace CI.AimGame.UI
             {
                 _graphics = panel1.CreateGraphics();
                 _graphics.Clear(Color.Aqua);
-                _x = rnd.Next(100);
-                _y = rnd.Next(100);
-                Rectangle rec = new Rectangle(_x,_y,100,100);
-                _x += 50;
-                _y += 50;
+                _x = rnd.Next(364);
+                _y = rnd.Next(193);
+                Rectangle rec = new Rectangle(_x,_y,30,30);
+                _x += 15;
+                _y += 15;
                 brush = new SolidBrush(Color.Black);
                 _graphics.FillEllipse(brush, rec);
             }
